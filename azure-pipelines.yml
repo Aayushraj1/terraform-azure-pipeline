@@ -13,3 +13,4 @@ steps:
     ls -R
     echo "Inside Terraform Folder"
     echo "another one"
+    echo "another second"
