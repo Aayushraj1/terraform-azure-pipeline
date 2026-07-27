@@ -11,3 +11,4 @@ steps:
 - script: |
     pwd
     ls -R
+    echo "Inside Terraform Folder"
