@@ -12,3 +12,4 @@ steps:
     pwd
     ls -R
     echo "Inside Terraform Folder"
+    echo "another one"
