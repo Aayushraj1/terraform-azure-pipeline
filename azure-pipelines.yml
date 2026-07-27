@@ -6,4 +6,8 @@ pool:
 
 steps:
 
-- script: echo Hello Azure Pipeline
+- checkout: self
+
+- script: |
+    pwd
+    ls -R
