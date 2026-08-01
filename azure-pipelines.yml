@@ -44,3 +44,8 @@ steps:
 
     find . -maxdepth 2
   displayName: Explore Terraform Folder
+- bash: |
+    cd terraform
+
+    terraform fmt -check
+  displayName: Terraform Format Check
