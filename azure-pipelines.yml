@@ -8,8 +8,11 @@ pool:
 
 steps:
 
-- checkout: self
+- task: TerraformInstaller@1
+  displayName: Install Terraform
+  inputs:
+    terraformVersion: '1.9.8'
 
 - script: |
     terraform version
-  displayName: Check Terraform
+  displayName: Verify Terraform
