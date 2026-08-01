@@ -11,8 +11,14 @@ steps:
 - checkout: self
 
 - script: |
+    echo "Current Directory"
     pwd
+
+    echo ""
+    echo "Files"
+    ls -la
+
+    echo ""
+    echo "Recursive Files"
     ls -R
-    echo "Inside Terraform Folder"
-    echo "another one"
-    echo "another second"
+  displayName: Explore Agent
