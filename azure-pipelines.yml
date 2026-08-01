@@ -8,15 +8,24 @@ pool:
 
 steps:
 
+- checkout: none
+
 - script: |
     echo "Current Directory"
     pwd
 
     echo ""
-    echo "Files"
+    echo "Listing Current Directory"
     ls -la
 
     echo ""
-    echo "Recursive Files"
-    ls -R
-  displayName: Explore Agent
+    echo "Listing /home/vsts/work/1"
+    ls -la /home/vsts/work/1
+
+    echo ""
+    echo "Try listing Sources folder"
+    ls -la /home/vsts/work/1/s || echo "Sources folder doesn't exist"
+
+    echo ""
+    echo "Trying to access azure-pipelines.yml"
+    cat azure-pipelines.yml || echo "File not found"
