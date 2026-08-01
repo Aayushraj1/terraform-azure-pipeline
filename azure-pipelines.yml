@@ -6,6 +6,15 @@ pr: none
 pool:
   vmImage: ubuntu-latest
 
+parameters:
+- name: environment
+  type: string
+  default: dev
+  values:
+    - dev
+    - test
+    - prod
+
 variables:
   tfVersion: '1.9.8'
   projectName: 'Terraform Azure Pipeline'
@@ -19,6 +28,8 @@ steps:
     echo "Branch       : $(Build.SourceBranch)"
     echo "Reason       : $(Build.Reason)"
     echo "Agent OS     : $(Agent.OS)"
+    echo "===================================edhar dekho========================="
+    echo "Environment  : ${{ parameters.environment }}"
   displayName: Explore Variables
 - bash: |
     set -e
