@@ -6,6 +6,10 @@ pr: none
 pool:
   vmImage: ubuntu-latest
 
+variables: 
+  projectName: Terraform-macroVariable
+  tfVersion: '1.9.8'
+
 steps:
 - bash: |
     set -e
@@ -15,7 +19,7 @@ steps:
     sudo apt-get update
     sudo apt-get install -y wget unzip
 
-    wget -q https://releases.hashicorp.com/terraform/1.9.8/terraform_1.9.8_linux_amd64.zip
+    wget -q https://releases.hashicorp.com/terraform/$(tfVersion)/terraform_$(tfVersion)_linux_amd64.zip
 
     unzip -o terraform_1.9.8_linux_amd64.zip
 
@@ -29,6 +33,9 @@ steps:
 
     echo "========== Current Directory =========="
     pwd
+
+    echo "=========tf-macro-variable==========="
+    echo $(projectName)
 
     echo "========== Files =========="
     ls -la
