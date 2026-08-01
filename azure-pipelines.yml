@@ -18,8 +18,14 @@ steps:
 
     unzip -o terraform_1.9.8_linux_amd64.zip
 
-    sudo mv -f terraform /usr/local/bin/
+    echo "========== CURRENT DIRECTORY =========="
+    pwd
 
-    terraform version
+    echo "========== FILES =========="
+    ls -lah
 
-  displayName: Install Terraform
+    echo "========== WHAT IS TERRAFORM? =========="
+    file terraform || true
+
+    echo "========== IS TERRAFORM DIRECTORY? =========="
+    ls -ld terraform || true
