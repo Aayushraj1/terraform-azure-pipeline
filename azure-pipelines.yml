@@ -6,28 +6,10 @@ pr: none
 pool:
   vmImage: ubuntu-latest
 
-jobs:
+steps:
 
-- job: Job1
+- checkout: self
 
-  steps:
-
-  - script: |
-      echo "Hello Azure" > demo.txt
-      ls -la
-      cat demo.txt
-
-- job: Job2
-
-  dependsOn: Job1
-
-  steps:
-
-  - script: |  
-      echo "Trying to read..."
-      ls -la
-      cat demo.txt
-
-
-
-      
+- script: |
+    terraform version
+  displayName: Check Terraform
