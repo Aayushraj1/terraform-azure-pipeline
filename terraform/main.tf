@@ -1,4 +1,6 @@
-resource "local_file" "hello" {
-  filename = "hello.txt"
-  content  = "Hello Terraform"
+resource "azurerm_resource_group" "rg" {
+
+  name     = var.resource_group_name
+  location = var.location
+
 }
