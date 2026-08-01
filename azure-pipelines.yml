@@ -24,5 +24,3 @@ steps:
     terraform version
 
   displayName: Install Terraform
-  
-  form || true
