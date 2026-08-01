@@ -6,26 +6,33 @@ pr: none
 pool:
   vmImage: ubuntu-latest
 
-steps:
+jobs:
 
-- checkout: none
+- job: Job1
+  displayName: First Job
 
-- script: |
-    echo "Current Directory"
-    pwd
+  steps:
 
-    echo ""
-    echo "Listing Current Directory"
-    ls -la
+  - script: |
+      echo "===== JOB 1 ====="
+      hostname
+      pwd
+      echo "Agent Name: $(Agent.Name)"
+      echo "Machine Name: $(Agent.MachineName)"
+      echo "OS: $(Agent.OS)"
+      sleep 15
+      echo "Job1 Finished"
 
-    echo ""
-    echo "Listing /home/vsts/work/1"
-    ls -la /home/vsts/work/1
+- job: Job2
+  displayName: Second Job
 
-    echo ""
-    echo "Try listing Sources folder"
-    ls -la /home/vsts/work/1/s || echo "Sources folder doesn't exist"
+  steps:
 
-    echo ""
-    echo "Trying to access azure-pipelines.yml"
-    cat azure-pipelines.yml || echo "File not found"
+  - script: |
+      echo "===== JOB 2 ====="
+      hostname
+      pwd
+      echo "Agent Name: $(Agent.Name)"
+      echo "Machine Name: $(Agent.MachineName)"
+      echo "OS: $(Agent.OS)"
+      echo "Job2 Finished"
