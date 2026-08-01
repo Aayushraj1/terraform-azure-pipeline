@@ -8,11 +8,17 @@ pool:
 
 steps:
 
-- task: TerraformInstaller@1
-  displayName: Install Terraform
-  inputs:
-    terraformVersion: '1.9.8'
+- bash: |
+    sudo apt-get update
 
-- script: |
+    sudo apt-get install -y wget unzip
+
+    wget https://releases.hashicorp.com/terraform/1.9.8/terraform_1.9.8_linux_amd64.zip
+
+    unzip terraform_1.9.8_linux_amd64.zip
+
+    sudo mv terraform /usr/local/bin/
+
     terraform version
-  displayName: Verify Terraform
+
+  displayName: Install Terraform
