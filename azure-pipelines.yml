@@ -35,3 +35,12 @@ steps:
 
     terraform init
   displayName: Terraform Init
+- bash: |
+    cd terraform
+
+    echo "========== AFTER INIT =========="
+
+    ls -la
+
+    find . -maxdepth 2
+  displayName: Explore Terraform Folder
