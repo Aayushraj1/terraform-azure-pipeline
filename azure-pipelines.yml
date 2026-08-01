@@ -24,3 +24,15 @@ steps:
     terraform version
 
   displayName: Install Terraform
+  
+    - bash: |
+    cd terraform
+
+    echo "========== Current Directory =========="
+    pwd
+
+    echo "========== Files =========="
+    ls -la
+
+    terraform init
+  displayName: Terraform Init
