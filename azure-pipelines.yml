@@ -7,25 +7,22 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-
 - bash: |
     set -e
+
+    cd /tmp
 
     sudo apt-get update
     sudo apt-get install -y wget unzip
 
-    wget https://releases.hashicorp.com/terraform/1.9.8/terraform_1.9.8_linux_amd64.zip
+    wget -q https://releases.hashicorp.com/terraform/1.9.8/terraform_1.9.8_linux_amd64.zip
 
     unzip -o terraform_1.9.8_linux_amd64.zip
 
-    echo "========== CURRENT DIRECTORY =========="
-    pwd
+    sudo install terraform /usr/local/bin/terraform
 
-    echo "========== FILES =========="
-    ls -lah
+    terraform version
 
-    echo "========== WHAT IS TERRAFORM? =========="
-    file terraform || true
-
-    echo "========== IS TERRAFORM DIRECTORY? =========="
-    ls -ld terraform || true
+  displayName: Install Terraform
+  
+  form || true
