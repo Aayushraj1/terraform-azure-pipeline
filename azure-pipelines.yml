@@ -6,11 +6,20 @@ pr: none
 pool:
   vmImage: ubuntu-latest
 
-variables: 
-  projectName: Terraform-macroVariable
+variables:
   tfVersion: '1.9.8'
+  projectName: 'Terraform Azure Pipeline'
+  environmentName: 'dev'
 
 steps:
+- bash: |
+    echo "Project      : $(projectName)"
+    echo "Environment  : $(environmentName)"
+    echo "TF Version   : $(terraformVersion)"
+    echo "Branch       : $(Build.SourceBranch)"
+    echo "Reason       : $(Build.Reason)"
+    echo "Agent OS     : $(Agent.OS)"
+  displayName: Explore Variables
 - bash: |
     set -e
 
@@ -53,6 +62,7 @@ steps:
   displayName: Explore Terraform Folder
 - bash: |
     cd terraform
+    terraform fmt
 
     terraform fmt -check
   displayName: Terraform Format Check
