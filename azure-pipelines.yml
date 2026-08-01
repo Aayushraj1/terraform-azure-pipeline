@@ -24,8 +24,7 @@ steps:
     terraform version
 
   displayName: Install Terraform
-  
-    - bash: |
+- bash: |
     cd terraform
 
     echo "========== Current Directory =========="
