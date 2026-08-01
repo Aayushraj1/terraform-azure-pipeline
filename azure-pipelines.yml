@@ -9,30 +9,25 @@ pool:
 jobs:
 
 - job: Job1
-  displayName: First Job
 
   steps:
 
   - script: |
-      echo "===== JOB 1 ====="
-      hostname
-      pwd
-      echo "Agent Name: $(Agent.Name)"
-      echo "Machine Name: $(Agent.MachineName)"
-      echo "OS: $(Agent.OS)"
-      sleep 15
-      echo "Job1 Finished"
+      echo "Hello Azure" > demo.txt
+      ls -la
+      cat demo.txt
 
 - job: Job2
-  displayName: Second Job
+
+  dependsOn: Job1
 
   steps:
 
-  - script: |
-      echo "===== JOB 2 ====="
-      hostname
-      pwd
-      echo "Agent Name: $(Agent.Name)"
-      echo "Machine Name: $(Agent.MachineName)"
-      echo "OS: $(Agent.OS)"
-      echo "Job2 Finished"
+  - script: |  
+      echo "Trying to read..."
+      ls -la
+      cat demo.txt
+
+
+
+      
