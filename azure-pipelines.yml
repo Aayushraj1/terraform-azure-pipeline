@@ -35,8 +35,8 @@ steps:
   displayName: Cleanup
   condition: always()
 - bash: |
-    echo"========start============="
-    echo"===================condition successfull======================"
+    echo "========start============="
+    echo "===================condition successfull======================"
   displayName: conditionCheck
   condition: eq(
     variables['Build.SourceBranch'],
