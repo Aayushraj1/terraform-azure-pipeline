@@ -35,6 +35,13 @@ steps:
   displayName: Cleanup
   condition: always()
 - bash: |
+    echo"========start============="
+    echo"===================condition successfull======================"
+  displayName: conditionCheck
+  condition: condition: eq(
+    variables['Build.SourceBranch'],
+    'refs/heads/main')
+- bash: |
     echo "Project      : $(projectName)"
     echo "Environment  : $(environmentName)"
     echo "TF Version   : $(terraformVersion)"
