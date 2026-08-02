@@ -23,9 +23,16 @@ stages:
 
 - stage: Apply
   dependsOn: Plan
+
   jobs:
-  - job: ApplyJob
-    steps:
-    - bash: |
-        echo "Terraform Apply"
-        exit 1
+
+  - deployment: ApplyDeployment
+    environment: dev
+
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+
+          - bash: |
+              echo "Deploying to DEV..."
