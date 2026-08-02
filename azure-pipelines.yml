@@ -38,7 +38,7 @@ steps:
     echo"========start============="
     echo"===================condition successfull======================"
   displayName: conditionCheck
-  condition: condition: eq(
+  condition: eq(
     variables['Build.SourceBranch'],
     'refs/heads/main')
 - bash: |
