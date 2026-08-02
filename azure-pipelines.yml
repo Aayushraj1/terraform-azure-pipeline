@@ -28,3 +28,4 @@ stages:
     steps:
     - bash: |
         echo "Terraform Apply"
+        exit 1
