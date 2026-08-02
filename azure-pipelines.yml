@@ -96,6 +96,10 @@ steps:
   displayName: jabFailHuaTabRunHua
   condition: failed()
 - bash: |
-    echo "=====bhai kisi ne stop kiya hai pipeline run========================"
+    echo "=====YE CHALEA HI CHALEGA = BO DEPENDENCIES ON ABOBE ONE========================"
   condition: succeededOrFailed()
   displayName: kisiNeMANUALLYbandKIYA
+- bash: |
+    echo "ye pipeline manually cancel hone pr chalega"
+  conditionName: pipeLineCancel
+  condition: canceled()
