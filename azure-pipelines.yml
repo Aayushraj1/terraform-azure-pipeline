@@ -10,6 +10,7 @@ parameters:
     - dev
     - test
     - prod
+    - other
 
 pool:
   vmImage: ubuntu-latest
