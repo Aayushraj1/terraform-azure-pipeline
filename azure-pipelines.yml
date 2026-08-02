@@ -95,3 +95,7 @@ steps:
     echo "=============================fail hua isliye run hua============================"
   displayName: jabFailHuaTabRunHua
   condition: failed()
+-bash: |
+  echo "=====bhai kisi ne stop kiya hai pipeline run========================"
+condition: succceededOrFailed()
+displayName: kisiNeMANUALLYbandKIYA
