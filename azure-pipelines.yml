@@ -6,33 +6,34 @@ pool:
 
 stages:
 
-- stage: Validate
+- stage: Build
+
   jobs:
-  - job: ValidateJob
+
+  - job: CreateFile
+
     steps:
-    - bash: |
-        echo "Terraform Validate"
 
-- stage: Plan
-  dependsOn: Validate
+    - bash: |
+        mkdir output
+        echo "Hello Azure DevOps" > output/message.txt
+
+    - publish: output
+      artifact: MyArtifact
+
+- stage: Deploy
+
+  dependsOn: Build
+
   jobs:
-  - job: PlanJob
+
+  - job: DownloadFile
+
     steps:
+
+    - download: current
+      artifact: MyArtifact
+
     - bash: |
-        echo "Terraform Plan"
-
-- stage: Apply
-  dependsOn: Plan
-
-  jobs:
-
-  - deployment: ApplyDeployment
-    environment: dev
-
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-
-          - bash: |
-              echo "Deploying to DEV..."
+        echo "Files downloaded:"
+        find .
