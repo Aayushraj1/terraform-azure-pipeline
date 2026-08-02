@@ -38,9 +38,9 @@ steps:
     echo "========start============="
     echo "===================condition successfull======================"
   displayName: conditionCheck
-  condition: eq(
+  condition: and( succedded(), eq(
     variables['Build.SourceBranch'],
-    'refs/heads/main')
+    'refs/heads/main'))
 - bash: |
     echo "Project      : $(projectName)"
     echo "Environment  : $(environmentName)"
