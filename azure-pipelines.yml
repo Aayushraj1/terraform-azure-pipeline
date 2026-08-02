@@ -97,5 +97,5 @@ steps:
   condition: failed()
 - bash: |
     echo "=====bhai kisi ne stop kiya hai pipeline run========================"
-  condition: succceededOrFailed()
+  condition: succeededOrFailed()
   displayName: kisiNeMANUALLYbandKIYA
