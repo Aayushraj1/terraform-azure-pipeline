@@ -1,22 +1,30 @@
-trigger: 
-- main
+trigger: none
 pr: none
-
-parameters:
-- name: environment
-  displayName: Select Environment
-  type: string
-  default: dev
-  values:
-    - dev
-    - test
-    - prod
-    - other
 
 pool:
   vmImage: ubuntu-latest
 
-steps:
+stages:
 
-- bash: |
-    echo "Environment = ${{ parameters.environment }}"
+- stage: Validate
+  jobs:
+  - job: ValidateJob
+    steps:
+    - bash: |
+        echo "Terraform Validate"
+
+- stage: Plan
+  dependsOn: Validate
+  jobs:
+  - job: PlanJob
+    steps:
+    - bash: |
+        echo "Terraform Plan"
+
+- stage: Apply
+  dependsOn: Plan
+  jobs:
+  - job: ApplyJob
+    steps:
+    - bash: |
+        echo "Terraform Apply"
