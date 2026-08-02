@@ -90,7 +90,7 @@ steps:
 
     terraform fmt -check
   displayName: Terraform Format Check
-- bash:
+- bash: |
     condition: failed()
     echo "=============================fail ho gya========================================"
     echo "=============================fail hua isliye run hua============================"
