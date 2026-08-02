@@ -98,7 +98,7 @@ steps:
 - bash: |
     echo "=====YE CHALEA HI CHALEGA = BO DEPENDENCIES ON ABOBE ONE========================"
   condition: succeededOrFailed()
-  displayName: kisiNeMANUALLYbandKIYA
+  displayName: runhogahihoga
 - bash: |
     echo "ye pipeline manually cancel hone pr chalega"
   displayName: pipeLineCancel
