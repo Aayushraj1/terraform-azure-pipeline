@@ -101,5 +101,5 @@ steps:
   displayName: kisiNeMANUALLYbandKIYA
 - bash: |
     echo "ye pipeline manually cancel hone pr chalega"
-  conditionName: pipeLineCancel
+  displayName: pipeLineCancel
   condition: canceled()
