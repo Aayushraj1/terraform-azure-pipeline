@@ -57,6 +57,18 @@ stages:
         terraform validate
       displayName: Terraform Validate
 
+    - bash: |
+        curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
+
+        tflint --version
+      displayName: Install TFLint
+
+    - bash: |
+        cd terraform
+
+        tflint
+      displayName: Run TFLint
+
 
 #=========================================================
 # Stage 2 - Plan (Placeholder)
