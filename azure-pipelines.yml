@@ -35,14 +35,14 @@ stages:
       artifact: MyArtifact
 
     - bash: |
-    echo "Pipeline Workspace = $(Pipeline.Workspace)"
-    echo "System.DefaultWorkingDirectory = $(System.DefaultWorkingDirectory)"
-    echo "Build.SourcesDirectory = $(Build.SourcesDirectory)"
+        echo "Pipeline Workspace = $(Pipeline.Workspace)"
+        echo "System.DefaultWorkingDirectory = $(System.DefaultWorkingDirectory)"
+        echo "Build.SourcesDirectory = $(Build.SourcesDirectory)"
 
-    echo ""
-    echo "===== Pipeline Workspace ====="
-    find "$(Pipeline.Workspace)"
-  displayName: Explore Artifact Location      
+        echo ""
+        echo "===== Pipeline Workspace ====="
+        find "$(Pipeline.Workspace)"
+      displayName: Explore Artifact Location      
 
     - bash: |
         echo "Files downloaded:"
